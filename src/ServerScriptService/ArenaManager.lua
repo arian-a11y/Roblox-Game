@@ -80,12 +80,8 @@ function ArenaManager.generateCompleteArena(arenaType, position)
         ArenaManager.addInteractiveElements(currentArena, config.interactiveElements)
     end
     
-    -- Setup camera reveal sequence
-    spawn(function()
-        wait(1) -- Allow arena to fully load
-        local CameraController = require(Players.LocalPlayer.PlayerScripts:WaitForChild("CameraController"))
-        CameraController.playCinematicSequence("ARENA_REVEAL", position, 5)
-    end)
+    -- Setup camera reveal sequence (handled client-side)
+    -- Note: Camera control is handled by client-side scripts
     
     print("Complete arena generated successfully!")
     return currentArena
